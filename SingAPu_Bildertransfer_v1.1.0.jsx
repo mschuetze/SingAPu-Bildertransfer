@@ -1,4 +1,4 @@
-﻿// SingAPu_Bildertransfer_v1.0.0.jsx
+﻿// SingAPu_Bildertransfer_v1.1.0.jsx
 
 // Photoshop-Voreinstellungen speichern - werden später wieder benötigt
 startRulerUnits = app.preferences.rulerUnits
@@ -22,7 +22,7 @@ EPSOpenOptions.constrainProportions = true
 var myInputFolder = Folder.selectDialog ("Ordner mit Ausgangsdateien wählen.");
 if(myInputFolder!=null){
 	// alle Bilddateien, außer EPS + SVG öffnen - wird separat behandelt
-	var myFiles = myInputFolder.getFiles(/.(psd|tif|tiff|png|jpg|jpeg|svg|bmp)$/i);
+	var myFiles = myInputFolder.getFiles(/.(psd|tif|tiff|png|jpg|jpeg|svg|bmp|webp)$/i);
 	for(var fileIndex=0;fileIndex<myFiles.length;fileIndex++){
 		var tempDoc = app.open(myFiles[fileIndex]);
 	}
