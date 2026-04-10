@@ -3,7 +3,7 @@ Dieses JavaScript-basierte Skript für Adobe Photoshop automatisiert den Import,
 
 ## Funktionsumfang
 Das Skript führt vollautomatisch folgende Schritte aus:
-- Multi-Format Import: Unterstützt den Import von Standardformaten (`.psd`, `.tif`, `.png`, `.jpg`, `.webp`) sowie Vektorgrafiken (`.eps`, `.svg`) mit vordefinierten Raster-Optionen (300 dpi, RGB).
+- Multi-Format Import: Unterstützt den Import von Standardformaten (`.psd`, `.tif`, `.png`, `.jpg`, `.bmp`, `.webp`) sowie Vektorgrafiken (`.eps`, `.svg`) mit vordefinierten Raster-Optionen (300 dpi, RGB).
 - Farbmodus-Korrektur: Konvertiert Dokumente automatisch in den RGB-Modus. Bitmap-Dateien werden dabei über den Graustufen-Modus zwischenkonvertiert, um Verluste zu minimieren.
 - Intelligente Skalierung:
   - Bilder mit einer Auflösung über 2 Millionen Pixeln werden automatisch auf eine Zielgröße skaliert, die knapp unter der 2-Millionen-Pixel-Grenze liegt (ca. 1,99 Mio. Pixel), um Speicherplatz zu optimieren.
