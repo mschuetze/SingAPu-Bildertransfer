@@ -1,4 +1,4 @@
-﻿// SingAPu_Bildertransfer_v2.0.3.jsx
+﻿// SingAPu_Bildertransfer_v2.1.0.jsx
 
 // 1. Voreinstellungen sichern
 var startRulerUnits = app.preferences.rulerUnits;
@@ -17,12 +17,29 @@ if (myInputFolder != null) {
     // 🔧 FIX: robuster Datei-Filter
     var myFiles = myInputFolder.getFiles(function(f) {
         return f instanceof File && 
-               f.name.match(/\.(psd|tif|tiff|png|jpg|jpeg|bmp|webp)$/i) &&
+               f.name.match(/\.(psd|tif|tiff|png|jpg|jpeg|bmp|webp|pdf)$/i) &&
                !f.name.match(/^(\._|\.DS_Store)/);
     });
 
     for (var i = 0; i < myFiles.length; i++) {
-        app.open(myFiles[i]);
+        var file = myFiles[i];
+        var ext = file.name.toLowerCase().match(/\.([^.]+)$/);
+
+        if (ext && ext[1] === "pdf") {
+            try {
+                var pdfOptions = new PDFOpenOptions();
+                pdfOptions.antiAlias = true;
+                pdfOptions.mode = OpenDocumentMode.RGB;
+                pdfOptions.resolution = 300;
+                pdfOptions.page = 1;
+                pdfOptions.constrainProportions = true;
+                app.open(file, pdfOptions);
+            } catch (e) {
+                app.open(file);
+            }
+        } else {
+            app.open(file);
+        }
     }
     
     // EPS + SVG separat behandeln
